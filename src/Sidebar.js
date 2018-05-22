@@ -68,7 +68,7 @@ const Sidebar = () =>{
 
 const styles={
     sidebar:{
-        width: '6rem',
+        width: '8rem',
         backgroundColor: '#f3f3f3',
         padding: '0.5rem 0',
         display: 'flex',
