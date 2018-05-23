@@ -3,14 +3,14 @@ import React, { Component } from 'react'
 import Sidebar from './Sidebar'
 import NoteList from './NoteList'
 import NoteForm from './NoteForm'
-localStorage.setItem("notes", 'test');
+
 
 class Main extends Component {
   constructor() {
     super()
     this.state = {
       currentNote: this.blankNote(),
-      notes: [],
+      notes: JSON.parse(localStorage.getItem("notes")),
     }
   }
 
@@ -44,7 +44,8 @@ class Main extends Component {
     }
 
     this.setState({ notes, currentNote: note })
-
+    let JSONnote=JSON.stringify(notes)
+    localStorage.setItem("notes", JSONnote);
 
   }
   deleteCurrentNote = () =>{
@@ -57,6 +58,8 @@ class Main extends Component {
       let temp = this.blankNote()
       this.setCurrentNote(temp)
 
+      let JSONnote=JSON.stringify(tempNotes)
+      localStorage.setItem("notes", JSONnote);
 
   }
   
