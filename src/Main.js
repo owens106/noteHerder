@@ -10,6 +10,8 @@ class Main extends Component {
     constructor(){
         super()
         this.state={
+            currentNote:null,
+
              notes:[
                 {
                   id: 1,
@@ -31,19 +33,23 @@ class Main extends Component {
         }
     }
 
-    render(){
-    return(
-        <div 
-          className="Main"
-          style={style}
+    setCurrentNote = (note) => {
+        this.setState({currentNote:note})
+    }
 
-        >
-          <Sidebar />
-          <NoteList notes={this.state.notes}/>
-          <NoteForm />
-        </div>
-    )
-}
+    render(){
+     return(
+         <div 
+              className="Main"
+              style={style}
+
+         >
+              <Sidebar />
+              <NoteList notes={this.state.notes} setCurrentNote ={this.setCurrentNote}/>
+             <NoteForm />
+         </div>
+     )
+    }
 }
 
 const style ={
