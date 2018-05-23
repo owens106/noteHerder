@@ -10,7 +10,11 @@ class Main extends Component {
     constructor(){
         super()
         this.state={
-            currentNote:null,
+            currentNote:{
+                id:null,
+                title:'',
+                body:''
+            },
 
              notes:[
                 {
@@ -46,7 +50,7 @@ class Main extends Component {
          >
               <Sidebar />
               <NoteList notes={this.state.notes} setCurrentNote ={this.setCurrentNote}/>
-             <NoteForm />
+             <NoteForm currentNote ={this.state.currentNote}/>
          </div>
      )
     }
