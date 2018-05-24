@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import Sidebar from './Sidebar'
 import NoteList from './NoteList'
 import NoteForm from './NoteForm'
+localStorage.setItem("notes", 'test');
 
 class Main extends Component {
   constructor() {
@@ -11,16 +12,6 @@ class Main extends Component {
       currentNote: this.blankNote(),
       notes: [],
     }
-  }
-
-  componentWillMount() {
-    const notes = JSON.parse(localStorage.getItem('notes'))
-    this.setState({ notes: notes || [] })
-  }
-
-  componentDidUpdate() {
-    const notesString = JSON.stringify(this.state.notes)
-    localStorage.setItem('notes', notesString)
   }
 
   blankNote = () => {
@@ -53,19 +44,22 @@ class Main extends Component {
     }
 
     this.setState({ notes, currentNote: note })
+
+
   }
+  deleteCurrentNote = () =>{
+      
+      let tempNotes =[...this.state.notes]
+      const i = tempNotes.findIndex(currentNote =>currentNote.id === this.state.currentNote.id)
+      tempNotes.splice(i,1)
+      this.setState({notes:tempNotes})
 
-  removeCurrentNote = () => {
-    const notes = [...this.state.notes]
-    const i = notes.findIndex(note => note.id === this.state.currentNote.id)
+      let temp = this.blankNote()
+      this.setCurrentNote(temp)
 
-    if (i > -1) {
-      notes.splice(i, 1)
-      this.setState({ notes })
-    }
 
-    this.resetCurrentNote()
   }
+  
 
   render() {
     return (
@@ -81,7 +75,7 @@ class Main extends Component {
         <NoteForm
           currentNote={this.state.currentNote}
           saveNote={this.saveNote}
-          removeCurrentNote={this.removeCurrentNote}
+          deleteCurrentNote={this.deleteCurrentNote}
         />
       </div>
     )
