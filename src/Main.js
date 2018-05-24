@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import Sidebar from './Sidebar'
 import NoteList from './NoteList'
 import NoteForm from './NoteForm'
+//import Firebase from './firebase.html'
 
 
 class Main extends Component {
@@ -70,6 +71,7 @@ class Main extends Component {
         className="Main"
         style={style}
       >
+        
         <Sidebar resetCurrentNote={this.resetCurrentNote} />
         <NoteList
           notes={this.state.notes}
@@ -80,6 +82,7 @@ class Main extends Component {
           saveNote={this.saveNote}
           deleteCurrentNote={this.deleteCurrentNote}
         />
+        
       </div>
     )
   }
