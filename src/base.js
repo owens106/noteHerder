@@ -6,3 +6,12 @@ var config = {
         storageBucket: "",
         messagingSenderId: "1018766429417"
       };
+
+
+/*
+const app = firebase.initializeApp(config)
+export const github Provider = new firebase.auth.GitHub
+export const auth = firebase.auth()
+export default Rebase.createClass(app.database())
+
+*/

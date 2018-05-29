@@ -13,6 +13,16 @@ class Main extends Component {
       notes: [],
     }
   }
+  /*
+  componentWillMount(){
+    base.syncState(this.props.uid){
+      context:this,
+      state: 'notes',
+      asArray: true,
+
+    }
+  }
+  */
 
   blankNote = () => {
     return {

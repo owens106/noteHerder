@@ -15,7 +15,7 @@ class App extends Component {
     auth.onAuthStateChanged(
       (user) =>{
         if(user){
-          this.handleAuth()
+          this.handleAuth(user)
         }
         else{
           this.handleUnauth()
@@ -27,8 +27,8 @@ class App extends Component {
 
   */
 
-  handleAuth = () => {
-    this.setState({ uid: 'dstrus' })
+  handleAuth = (/*user*/) => {
+    this.setState({ uid: 'dstrus'/*user.uid*/ })
   }
 
   /*handleUnauth = () =>{
