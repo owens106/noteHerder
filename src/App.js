@@ -29,6 +29,7 @@ class App extends Component {
 
   handleAuth = (/*user*/) => {
     this.setState({ uid: 'dstrus'/*user.uid*/ })
+    //localStorage.setItem('uid',user.id)
   }
 
   /*handleUnauth = () =>{
