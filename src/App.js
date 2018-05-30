@@ -12,6 +12,10 @@ class App extends Component {
   }
 
   /*componentWillMount(){
+    const uid = localStorage.getItem('uid)
+    if(uid)
+      this.setState){uid})
+    }
     auth.onAuthStateChanged(
       (user) =>{
         if(user){
@@ -34,6 +38,8 @@ class App extends Component {
 
   /*handleUnauth = () =>{
       this.setState({uid:null})
+      //localStorage.removeItem('uid',user.id)
+
   }
 
   */
