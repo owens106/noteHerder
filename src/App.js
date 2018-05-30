@@ -4,6 +4,8 @@ import './App.css'
 import Main from './Main'
 import SignIn from './SignIn'
 
+import {Switch,Route, Redirect} from 'react-router-dom'
+
 //import {auth} from './base'
 
 class App extends Component {
@@ -56,11 +58,22 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {
-          this.signedIn()
-            ? <Main signOut={this.signOut} />
-            : <SignIn handleAuth={this.handleAuth} />
-        }
+
+        <Switch>
+          <Route path ='/sign-in' component={SignIn}/>
+          <Route path = '/notes' render ={() =>( 
+              this.signedIn() 
+              ?<Main signOut={this.signOut} />
+              :<Redirect to ='/sign-in'/>
+          )}/>
+          <Rotue render = {() => (
+            this.signedIn()
+            ?<Redirect to ='/notes'/>
+            :<Redirect to = 'sign-in'/>
+
+          )}/>
+        </Switch>
+        
 
       </div>
     )
