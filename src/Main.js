@@ -3,7 +3,11 @@ import React, { Component } from 'react'
 import Sidebar from './Sidebar'
 import NoteList from './NoteList'
 import NoteForm from './NoteForm'
+
+import {Route,Switch} from 'react-router-dom'
 localStorage.setItem("notes", 'test');
+
+
 
 class Main extends Component {
   constructor() {
@@ -72,6 +76,11 @@ class Main extends Component {
   
 
   render() {
+    const formProps={
+      currentNote:this.state.currentNote,
+      saveNote:this.state.saveNote,
+      deleteCurrentNote= this.deleteCurrentNote
+    }
     return (
       <div
         className="Main"
@@ -82,11 +91,33 @@ class Main extends Component {
           notes={this.state.notes}
           setCurrentNote={this.setCurrentNote}
         />
-        <NoteForm
-          currentNote={this.state.currentNote}
-          saveNote={this.saveNote}
-          deleteCurrentNote={this.deleteCurrentNote}
-        />
+        <Switch>
+          <Route 
+            path ='/notes/:id'
+            render ={(navProps) => (
+              <NoteForm
+                {...formProps}
+                {...navProps}
+              />
+
+            )}
+          />
+
+          <Route 
+            
+            render ={(navProps) => (
+              <NoteForm
+                {...formProps}
+                {...navProps}
+              />
+
+            )}
+          
+          />
+
+        <Switch/>
+
+        
       </div>
     )
   }
