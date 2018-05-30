@@ -79,7 +79,7 @@ class Main extends Component {
     const formProps={
       currentNote:this.state.currentNote,
       saveNote:this.state.saveNote,
-      deleteCurrentNote= this.deleteCurrentNote
+      deleteNote: this.deleteCurrentNote
     }
     return (
       <div
@@ -115,7 +115,7 @@ class Main extends Component {
           
           />
 
-        <Switch/>
+        </Switch>
 
         
       </div>

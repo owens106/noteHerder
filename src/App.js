@@ -53,6 +53,7 @@ class App extends Component {
 
   signedIn= () => {
     return this.state.uid
+    
   }
 
   render() {
@@ -66,7 +67,7 @@ class App extends Component {
               ?<Main signOut={this.signOut} />
               :<Redirect to ='/sign-in'/>
           )}/>
-          <Rotue render = {() => (
+          <Route render = {() => (
             this.signedIn()
             ?<Redirect to ='/notes'/>
             :<Redirect to = 'sign-in'/>
